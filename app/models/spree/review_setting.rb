@@ -6,6 +6,9 @@ module Spree
     # Control how many reviews are shown in summaries etc.
     preference :preview_size, :integer, default: 3
 
+    # Show a reviewer's name.
+    preference :show_user_name, :boolean, default: false
+
     # Show a reviewer's email address.
     preference :show_email, :boolean, default: false
 
