@@ -50,6 +50,7 @@ en:
       require_login: Require user to be logged in
       review_settings: Review Settings
       show_email: Show email addresses
+      show_user_name: Show User Name
       track_locale: Track user's locale
       show_identifier: Show Identifier
     star:

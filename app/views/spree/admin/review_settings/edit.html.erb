@@ -11,21 +11,24 @@
 					<%= Spree.t(:include_unapproved, scope: :spree_reviews) %>
 				<% end %>
 			</div>
-
 			<div class="checkbox">
 				<%= label_tag :feedback_rating do %>
 					<%= preference_field_tag :feedback_rating, Spree::Reviews::Config[:feedback_rating], type: :boolean %>
 					<%= Spree.t(:feedback_rating, scope: :spree_reviews) %>
 				<% end %>
 			</div>
-
+      <div class="checkbox">
+        <%= label_tag :show_user_name do %>
+            <%= preference_field_tag :show_user_name, Spree::Reviews::Config[:show_user_name], type: :boolean %>
+            <%= Spree.t(:show_user_name, scope: :spree_reviews) %>
+        <% end %>
+      </div>
 			<div class="checkbox">
 				<%= label_tag :show_email do %>
 					<%= preference_field_tag :show_email, Spree::Reviews::Config[:show_email], type: :boolean %>
 					<%= Spree.t(:show_email, scope: :spree_reviews) %>
 				<% end %>
 			</div>
-
 			<div class="checkbox">
 				<%= label_tag :require_login do %>
 					<%= preference_field_tag :require_login, Spree::Reviews::Config[:require_login], type: :boolean %>
