@@ -10,13 +10,22 @@
   <span itemprop="datePublished" content="<%= review.created_at.to_date.to_s %>"></span>
   <span itemprop="reviewRating" content="<%= review.rating %>"></span>
   <% if review.show_identifier %>
-    <% if Spree::Reviews::Config[:show_email] && review.user %>
-      <span itemprop="author"><%= review.user.email %></span>
+    <% author = '' %>
+    <% if review.user %>
+      <% if Spree::Reviews::Config[:show_user_name] %>
+        <% author = review.user.try(:full_name) || '' %>
+      <% end %>
+      <% if Spree::Reviews::Config[:show_email] %>
+        <% if author.present? %>
+          <% author = "#{author(review.user.email)}" %>
+        <% else %>
+          <% author = review.user.email %>
+        <% end %>
+      <% end %>
     <% else %>
-      <span itemprop="author"><%= review.name %></span>
+      <span itemprop="author"><% author = Spree.t(:anonymous) %></span>
     <% end %>
-  <% else %>
-    <span itemprop="author"><%= Spree.t(:anonymous) %></span>
+    <span itemprop="author"><%= author %></span>
   <% end %>
   <div itemprop="reviewBody">
     <%= simple_format(review.review) %>
