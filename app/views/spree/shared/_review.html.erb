@@ -17,7 +17,7 @@
       <% end %>
       <% if Spree::Reviews::Config[:show_email] %>
         <% if author.present? %>
-          <% author = "#{author(review.user.email)}" %>
+          <% author = "#{author}(#{review.user.email})" %>
         <% else %>
           <% author = review.user.email %>
         <% end %>
